@@ -85,6 +85,11 @@
         return $app->redirect("/stores");
     });
 
+    $app->post('/delete_all_brands', function() use ($app) {
+        Brand::deleteAll();
+        return $app->redirect("/brands");
+    });
+
 return $app;
 
 ?>

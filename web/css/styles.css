@@ -1,0 +1,15 @@
+body {
+
+}
+
+li {
+    list-style: none;
+}
+
+#nav-buttons {
+    padding-top: 20px;
+}
+
+form {
+    padding: 15px;
+}
