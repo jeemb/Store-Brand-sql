@@ -33,7 +33,7 @@ class Brand
 
     function addStore($id)
     {
-        $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$id}, {$this->getId()});");
+        $GLOBALS['DB']->exec("INSERT INTO brands_stores (brand_id, store_id) VALUES ({$this->getId()}, {$id});");
     }
 
     function getStores()

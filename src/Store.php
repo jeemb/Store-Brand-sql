@@ -51,7 +51,7 @@ class Store
     function getBrands()
     {
         $returned_brands = $GLOBALS['DB']->query("SELECT brands.* FROM stores
-            JOIN brands_authors ON (brands_stores.store_id = stores.id)
+            JOIN brands_stores ON (brands_stores.store_id = stores.id)
             JOIN brands ON (brands.id = brands_stores.brand_id)
             WHERE stores.id = {$this->getId()};");
             if ($returned_brands) {
