@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Brands{% endblock %}
+
+{% block content %}
+<h1>Brands</h1>
+
+{% if brands is not empty %}
+    <ul>
+    {% for brand in brands %}
+        <li><a href="/brand/{{ brand.getId }}">Name: {{ brand.getName }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

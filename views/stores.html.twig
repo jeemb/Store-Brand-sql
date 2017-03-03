@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Stores{% endblock %}
+
+{% block content %}
+<h1>Stores</h1>
+
+{% if stores is not empty %}
+    <ul>
+    {% for store in stores %}
+        <li><a href="/store/{{ store.getId }}">Name: {{ store.getName }}</a></li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

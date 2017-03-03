@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h3>Home Page</h3>
+    <p>Add Store:</p>
+    <form action="/add_store" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+
+        <button type="submit" name="button">Add</button>
+    </form>
+
+    <p>Add Course:</p>
+    <form action="/add_brand" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+
+        <button type="submit" name="button">Add</button>
+    </form>
+
+{% endblock %}
