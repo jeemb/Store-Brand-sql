@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ brand.getName }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ brand.getName }} Information</h1>
+
+<ul>
+    <li>Title: {{ brand.getName }}</li>
+        <ul>
+        {% if stores is not empty %}
+            {% for store in stores %}
+                <li><a href="/store/{{ store.getId }}">{{store.getName}}</a></li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+</ul>
+
+{% if all_stores is not empty %}
+<form action="/assign_store/{{ brand.getId }}" method="post">
+    <label for="assign-store">Add a Store that sell this brand</label>
+        <select name="assign-store" class="form-control">
+            {% for store in all_stores %}
+            <option value="{{ store.getId }}">{{ store.getName }}</option>
+            {% endfor %}
+        </select>
+    <button type="submit" class="btn btn-success">Assign Store</button>
+</form>
+{% endif %}
+
+{% endblock %}

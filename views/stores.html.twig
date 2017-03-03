@@ -11,6 +11,14 @@
         <li><a href="/store/{{ store.getId }}">Name: {{ store.getName }}</a></li>
     {% endfor %}
     </ul>
-{% endif %}
 
+    <form action="delete_all" method="post">
+        <button type="submit" class="btn btn-warning">Clear all Stores</button>
+    </form>
+
+{% else %}
+
+    <h4>No stores listed in database!</h4>
+
+{% endif %}
 {% endblock %}

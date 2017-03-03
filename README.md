@@ -1,4 +1,4 @@
-# _Brands Carried By Stores & Stores carrying Brands_
+# _Shoe Stores_
 
 #### MySQL PHP Database Program 3.3.2017
 

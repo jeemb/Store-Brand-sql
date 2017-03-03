@@ -35,7 +35,7 @@
 </div>
 
 {% if all_brands is not empty %}
-<form action="/assign_brand/{{ brand.getId }}" method="post">
+<form action="/assign_brand/{{ store.getId }}" method="post">
     <label for="assign-brand">Assign a brand to this store</label>
         <select name="assign-brand" class="form-control">
             {% for brand in all_brands %}
