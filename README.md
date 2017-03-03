@@ -6,7 +6,7 @@
 
 ## Description
 
-This app explores a new concept to my learning: "many-to-many" database relationships. The app displays user-inputted information about stores and brands sold in those stores. The user can update and delete individual stores and add new brands to stores and stores that sell specific brands. Because, a store can sell many brands and a brand can be sold in many different stores. 
+This app explores a new concept to my learning: "many-to-many" database relationships. The app displays user-inputted information about stores and brands sold in those stores. The user can update and delete individual stores and add new brands to stores and stores that sell specific brands. Because, a store can sell many brands and a brand can be sold in many different stores.
 
 ### Application Specifications
 
@@ -24,7 +24,7 @@ This app explores a new concept to my learning: "many-to-many" database relation
 * Run `$ composer install`
 * Open up MAMP and set document root to this project's web folder.
 * Start servers in MAMP
-* Open up web browser and navigate to **`php -S localhost:8888`** to view program
+* Open up web browser and navigate to **`localhost:8888`** to view program
 
 ## Backup MySQL Commands
 

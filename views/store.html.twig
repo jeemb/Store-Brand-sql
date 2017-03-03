@@ -1,0 +1,50 @@
+{% extends "base.html.twig" %}
+
+{% block title %}{{ store.getName }}{% endblock %}
+
+{% block content %}
+
+<h1>{{ store.getName }} Information</h1>
+
+<ul>
+    <li>Title: {{ store.getName }}</li>
+        <ul>
+        {% if brands is not empty %}
+            {% for brand in brands %}
+                <li><a href="/brand/{{ brand.getId }}">{{brand.getName}}</a></li>
+            {% endfor %}
+        {% endif %}
+        </ul>
+</ul>
+
+<!-- <div class="edit_delete">
+
+    <form action="/edit_book/{{ book.getId }}" method="post">
+        <input type="hidden" name="_method" value="patch">
+        <label for="edit-book">Edit Book</label>
+        <input type="text" name="title" value="{{ book.getTitle }}" class="form-control">
+        <input type="number" name="total-copies" min="{{book.getCopiesOut}}" value="{{ book.getTotalCopies }}" class="form-control">
+
+        <button type="submit" class="btn btn-warning">Edit</button>
+    </form>
+
+    <form action="/delete_book/{{ book.getId }}" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <label for="delete-book">Delete Book</label>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+</div> -->
+
+{% if all_brands is not empty %}
+<form action="/assign_brand/{{ brand.getId }}" method="post">
+    <label for="assign-brand">Assign a brand to this store</label>
+        <select name="assign-brand" class="form-control">
+            {% for brand in all_brands %}
+            <option value="{{ brand.getId }}">{{ brand.getName }}</option>
+            {% endfor %}
+        </select>
+    <button type="submit" class="btn btn-success">Assign Brand</button>
+</form>
+{% endif %}
+
+{% endblock %}
