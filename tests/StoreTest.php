@@ -84,6 +84,35 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($new_brand, $result[0]);
     }
 
+    function test_getBrands()
+    {
+        //Arrange
+        $name = "Brand #1";
+        $test_brand = new Brand($name);
+        $test_brand->save();
+
+        $name2 = "Brand #2";
+        $test_brand2 = new Brand($name2);
+        $test_brand2->save();
+
+        $name = "Food and Stuff";
+        $test_store = new Store($name);
+        $test_store->save();
+
+        $name2 = "Food and Stuff Too";
+        $test_store2 = new Store($name2);
+        $test_store2->save();
+
+        //Act
+        $test_store->addBrand($test_brand->getId());
+        $test_store->addBrand($test_brand2->getId());
+        $result = $test_store->getBrands();
+
+        //Assert
+        $this->assertEquals([$test_brand, $test_brand2], $result);
+    }
+
+
 
     function test_delete()
     {
