@@ -25,7 +25,23 @@ class Store
         return $this->id;
     }
 
+    function save()
+    {
+        $GLOBALS['DB']->exec("INSERT INTO stores (name) VALUES ('{$this->getName()}');");
+       $this->id = $GLOBALS['DB']->lastInsertId();
+    }
 
+    function update($name)
+     {
+         $this->setName($name);
+         $GLOBALS['DB']->exec("UPDATE stores SET name = '{$this->name}' WHERE id = {$this->id}");
+     }
+
+    function delete()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
+        $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$this->getId()};");
+    }
 }
 
 
