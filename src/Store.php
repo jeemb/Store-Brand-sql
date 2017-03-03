@@ -78,8 +78,4 @@ class Store
         $GLOBALS['DB']->exec("DELETE FROM stores;");
     }
 }
-
-
-
-
 ?>
