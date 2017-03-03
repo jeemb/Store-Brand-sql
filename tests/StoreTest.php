@@ -18,6 +18,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
     protected function TearDown()
     {
         Store::deleteAll();
+        Brand::deleteAll();
     }
 
     function test_save()
@@ -64,24 +65,24 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, $new_store);
     }
 
-    function test_addBrand()
-    {
-        //Arrange
-        $name = "Food and Stuff";
-        $new_store = new Store($name);
-        $new_store->save();
-
-        $brand = "Pretty Decent Quality Stuff";
-        $new_brand = new Brand($name);
-        $new_brand->save();
-
-        //Act
-        $new_store->addBrand($new_brand->getId());
-        $result = $new_store->getBrands();
-
-        //Assert
-        $this->assertEquals([$new_brand], $result);
-    }
+    // function test_addBrand()
+    // {
+    //     //Arrange
+    //     $name = "Food and Stuff";
+    //     $new_store = new Store($name);
+    //     $new_store->save();
+    //
+    //     $brand = "Pretty Decent Quality Stuff";
+    //     $new_brand = new Brand($name);
+    //     $new_brand->save();
+    //
+    //     //Act
+    //     $new_store->addBrand($new_brand->getId());
+    //     $result = $new_store->getBrands();
+    //
+    //     //Assert
+    //     $this->assertEquals([$new_brand], $result);
+    // }
 
 
     function test_delete()
