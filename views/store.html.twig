@@ -17,23 +17,22 @@
         </ul>
 </ul>
 
-<!-- <div class="edit_delete">
+<div class="edit_delete">
 
-    <form action="/edit_book/{{ book.getId }}" method="post">
+    <form action="/edit_store/{{ store.getId }}" method="post">
         <input type="hidden" name="_method" value="patch">
-        <label for="edit-book">Edit Book</label>
-        <input type="text" name="title" value="{{ book.getTitle }}" class="form-control">
-        <input type="number" name="total-copies" min="{{book.getCopiesOut}}" value="{{ book.getTotalCopies }}" class="form-control">
+        <label for="name">Edit Store</label>
+        <input type="text" name="name" value="{{ store.getName }}" class="form-control">
 
         <button type="submit" class="btn btn-warning">Edit</button>
     </form>
 
-    <form action="/delete_book/{{ book.getId }}" method="post">
+    <form action="/delete_store/{{ store.getId }}" method="post">
         <input type="hidden" name="_method" value="delete">
-        <label for="delete-book">Delete Book</label>
+        <label for="delete-store">Delete Store</label>
         <button type="submit" class="btn btn-danger">Delete</button>
     </form>
-</div> -->
+</div>
 
 {% if all_brands is not empty %}
 <form action="/assign_brand/{{ brand.getId }}" method="post">
