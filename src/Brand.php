@@ -39,13 +39,19 @@ class Brand
     function getStores()
     {
         $returned_stores = $GLOBALS['DB']->query("SELECT stores.* FROM brands
-            JOIN brands_authors ON (brands_stores.brand_id = brands.id)
-            JOIN stores ON (stores.id = brands_stores.stores_id)
+            JOIN brands_stores ON (brands_stores.brand_id = brands.id)
+            JOIN stores ON (stores.id = brands_stores.store_id)
             WHERE brands.id = {$this->getId()};");
             if ($returned_stores) {
                 return $returned_stores->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Store', ['name', 'id']);
             }
             return [];
+    }
+
+    function delete()
+    {
+        $GLOBALS['DB']->exec("DELETE FROM brands WHERE id = {$this->getId()};");
+        $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$this->getId()};");
     }
 
     static function find($id)

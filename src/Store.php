@@ -40,7 +40,7 @@ class Store
     function delete()
     {
         $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
-        $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE brand_id = {$this->getId()};");
+        $GLOBALS['DB']->exec("DELETE FROM brands_stores WHERE store_id = {$this->getId()};");
     }
 
     function addBrand($id)
@@ -58,7 +58,7 @@ class Store
                 return $returned_brands->fetchAll(PDO::FETCH_CLASS|PDO::FETCH_PROPS_LATE, 'Brand', ['name', 'id']);
             }
             return [];
-        }
+    }
 
     static function find($id)
     {

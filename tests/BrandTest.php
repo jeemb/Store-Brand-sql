@@ -49,24 +49,52 @@ class BrandTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, $new_brand);
     }
 
-    // function test_addStore()
-    // {
-    //     //Arrange
-    //     $name = "Number 1 Brand";
-    //     $new_brand = new Brand($name);
-    //     $new_brand->save();
-    //
-    //     $name = "Food and Stuff";
-    //     $new_store = new Store($name);
-    //     $new_store->save();
-    //
-    //     //Act
-    //     $new_brand->addStore($new_store->getId());
-    //     $result = $new_brand->getStores();
-    //
-    //     //Assert
-    //     $this->assertEquals([$new_store], $result);
-    // }
+    function test_addStore()
+    {
+        //Arrange
+        $name = "Number 1 Brand";
+        $new_brand = new Brand($name);
+        $new_brand->save();
+
+        $name = "Food and Stuff";
+        $new_store = new Store($name);
+        $new_store->save();
+
+        //Act
+        $new_brand->addStore($new_store->getId());
+        $result = $new_brand->getStores();
+
+        //Assert
+        $this->assertEquals([$new_store], $result);
+    }
+
+    function test_getStores()
+    {
+        //Arrange
+        $name = "Brand #1";
+        $test_brand = new Brand($name);
+        $test_brand->save();
+
+        $name2 = "Brand #2";
+        $test_brand2 = new Brand($name2);
+        $test_brand2->save();
+
+        $name = "Food and Stuff";
+        $test_store = new Store($name);
+        $test_store->save();
+
+        $name2 = "Food and Stuff Too";
+        $test_store2 = new Store($name2);
+        $test_store2->save();
+
+        //Act
+        $test_brand->addStore($test_store->getId());
+        $test_brand->addStore($test_store2->getId());
+        $result = $test_brand->getStores();
+
+        //Assert
+        $this->assertEquals([$test_store, $test_store2], $result);
+    }
 
     function test_getAll()
     {
@@ -85,5 +113,24 @@ class BrandTest extends PHPUnit_Framework_TestCase
         //Assert
         $this->assertEquals([$new_brand, $new_brand2], $result);
     }
+
+    // function test_delete()
+    // {
+    //     //Arrange
+    //     $name = "Food and Stuff";
+    //     $new_store = new Store($name);
+    //     $new_store->save();
+    //
+    //     $name2 = "Clothes and Stuff";
+    //     $new_store2 = new Store($name2);
+    //     $new_store2->save();
+    //
+    //     //Act
+    //     $new_store->delete();
+    //     $result = Store::getAll();
+    //
+    //     //Assert
+    //     $this->assertEquals($result, [$new_store2]);
+    // }
 }
 ?>
