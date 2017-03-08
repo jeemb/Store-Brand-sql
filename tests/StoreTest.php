@@ -131,8 +131,6 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([$test_brand, $test_brand2], $result);
     }
 
-
-
     function test_delete()
     {
         //Arrange
@@ -150,6 +148,20 @@ class StoreTest extends PHPUnit_Framework_TestCase
 
         //Assert
         $this->assertEquals($result, [$new_store2]);
+    }
+
+    function test_getName()
+    {
+        //Arrange
+        $name = "Food and Stuff";
+        $test_store = new Store($name);
+        $test_store->save();
+
+        //Act
+        $result = $test_store->getName();
+
+        //Assert
+        $this->assertEquals($name, $result);
     }
 }
 ?>
