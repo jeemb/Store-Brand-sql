@@ -35,6 +35,25 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, [$new_store]);
     }
 
+    function test_getAll()
+    {
+        //Arrange
+        $name = "Food and Stuff";
+        $new_store = new Store($name);
+        $new_store->save();
+
+        $name = "New Store Name";
+        $new_store2 = new Store($name);
+        $new_store2->save();
+
+        //Act
+        $result = Store::getAll();
+
+        //Assert
+        $this->assertEquals([$new_store, $new_store2], $result);
+    }
+
+
     function test_update()
     {
         //Arrange
