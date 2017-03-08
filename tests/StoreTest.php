@@ -177,5 +177,32 @@ class StoreTest extends PHPUnit_Framework_TestCase
         //Assert
         $this->assertEquals("New Name", $result);
     }
+
+    function testSaveSetsId()
+    {
+        //Arrange
+        $name = "Food and Stuff";
+        $test_store = new Store($name);
+
+        //Act
+        $test_store->save();
+
+        //Assert
+        $this->assertEquals(true, is_numeric($test_store->getId()));
+    }
+
+    function testGetId()
+    {
+        //Arrange
+        $id = 1;
+        $name = "Food and Stuff";
+        $test_store = new Store($name, $id);
+
+        //Act
+        $result = $test_store->getId();
+
+        //Assert
+        $this->assertEquals(1, $result);
+    }
 }
 ?>
