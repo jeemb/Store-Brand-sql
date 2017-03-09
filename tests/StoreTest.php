@@ -21,7 +21,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         Brand::deleteAll();
     }
 
-    function test_save()
+    function testSave()
     {
         //Arrange
         $name = "Food and Stuff";
@@ -35,7 +35,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, [$new_store]);
     }
 
-    function test_getAll()
+    function testGetAll()
     {
         //Arrange
         $name = "Food and Stuff";
@@ -54,7 +54,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
     }
 
 
-    function test_update()
+    function testUpdate()
     {
         //Arrange
         $name = "Food and Stuff";
@@ -70,7 +70,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, "Clothes and Stuff");
     }
 
-    function test_find()
+    function testFind()
     {
         //Arrange
         $name = "Food and Stuff";
@@ -84,7 +84,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, $new_store);
     }
 
-    function test_addBrand()
+    function testAddBrand()
     {
         //Arrange
         $name = "Food and Stuff";
@@ -103,7 +103,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($new_brand, $result[0]);
     }
 
-    function test_getBrands()
+    function testGetBrands()
     {
         //Arrange
         $name = "Brand #1";
@@ -131,7 +131,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([$test_brand, $test_brand2], $result);
     }
 
-    function test_delete()
+    function testDelete()
     {
         //Arrange
         $name = "Food and Stuff";
@@ -150,7 +150,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($result, [$new_store2]);
     }
 
-    function test_getName()
+    function testGetName()
     {
         //Arrange
         $name = "Food and Stuff";
@@ -203,6 +203,27 @@ class StoreTest extends PHPUnit_Framework_TestCase
 
         //Assert
         $this->assertEquals(1, $result);
+    }
+
+    function testDeleteAll()
+    {
+        //Arrange
+        $name = "Food and Stuff";
+        $id = 1;
+        $test_store = new Store($name, $id);
+        $test_store->save();
+
+        $name = "Store 2";
+        $id = 2;
+        $test_store = new Store($name, $id);
+        $test_store->save();
+
+        //Act
+        Store::deleteAll();
+
+        //Assert
+        $result = Store::getAll();
+        $this->assertEquals([], $result);
     }
 }
 ?>

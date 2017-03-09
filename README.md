@@ -24,6 +24,9 @@ This app explores a new concept to my learning: "many-to-many" database relation
 * Run `$ composer install`
 * Open up MAMP and set document root to this project's web folder.
 * Start servers in MAMP
+* Open `http://localhost:8888/phpmyadmin`
+* Navigate to Import tab
+* Upload shoes.sql.zip and shoes.sql.zip
 * Open up web browser and navigate to **`localhost:8888`** to view program
 
 ## Backup MySQL Commands
