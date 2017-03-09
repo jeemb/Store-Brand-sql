@@ -164,7 +164,7 @@ class StoreTest extends PHPUnit_Framework_TestCase
         $this->assertEquals($name, $result);
     }
 
-    function testSetDescription()
+    function testSetName()
     {
         //Arrange
         $name = "Food and Stuff";

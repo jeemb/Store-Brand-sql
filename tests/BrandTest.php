@@ -38,7 +38,7 @@ class BrandTest extends PHPUnit_Framework_TestCase
     function test_find()
     {
         //Arrange
-        $name = "Food and Stuff";
+        $name = "Brand Name";
         $new_brand = new Brand($name);
         $new_brand->save();
 
@@ -114,23 +114,23 @@ class BrandTest extends PHPUnit_Framework_TestCase
         $this->assertEquals([$new_brand, $new_brand2], $result);
     }
 
-    // function test_delete()
-    // {
-    //     //Arrange
-    //     $name = "Food and Stuff";
-    //     $new_store = new Store($name);
-    //     $new_store->save();
-    //
-    //     $name2 = "Clothes and Stuff";
-    //     $new_store2 = new Store($name2);
-    //     $new_store2->save();
-    //
-    //     //Act
-    //     $new_store->delete();
-    //     $result = Store::getAll();
-    //
-    //     //Assert
-    //     $this->assertEquals($result, [$new_store2]);
-    // }
+    function test_delete()
+    {
+        //Arrange
+        $name = "Brand Name 1";
+        $new_brand = new Brand($name);
+        $new_brand->save();
+
+        $name2 = "Brand Name 2";
+        $new_brand2 = new Brand($name2);
+        $new_brand2->save();
+
+        //Act
+        $new_brand->delete();
+        $result = Brand::getAll();
+
+        //Assert
+        $this->assertEquals($result, [$new_brand2]);
+    }
 }
 ?>
