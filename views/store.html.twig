@@ -7,9 +7,10 @@
 <h1>{{ store.getName }} Information</h1>
 
 <ul>
-    <li>Title: {{ store.getName }}</li>
+    <li>Store Name: {{ store.getName }}</li>
         <ul>
         {% if brands is not empty %}
+            <h3>Brands sold in this store:</h3>
             {% for brand in brands %}
                 <li><a href="/brand/{{ brand.getId }}">{{brand.getName}}</a></li>
             {% endfor %}
