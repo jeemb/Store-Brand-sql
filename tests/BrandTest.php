@@ -132,5 +132,60 @@ class BrandTest extends PHPUnit_Framework_TestCase
         //Assert
         $this->assertEquals($result, [$new_brand2]);
     }
+
+    function test_getName()
+    {
+        //Arrange
+        $name = "Brand Name 1";
+        $test_brand = new Brand($name);
+        $test_brand->save();
+
+        //Act
+        $result = $test_brand->getName();
+
+        //Assert
+        $this->assertEquals($name, $result);
+    }
+
+    function testSetName()
+    {
+        //Arrange
+        $name = "Brand Name 1";
+        $test_brand = new Brand($name);
+
+        //Act
+        $test_brand->setName("New Name");
+        $result = $test_brand->getName();
+
+        //Assert
+        $this->assertEquals("New Name", $result);
+    }
+
+    function testSaveSetsId()
+    {
+        //Arrange
+        $name = "Brand Name";
+        $test_brand = new Brand($name);
+
+        //Act
+        $test_brand->save();
+
+        //Assert
+        $this->assertEquals(true, is_numeric($test_brand->getId()));
+    }
+
+    function testGetId()
+    {
+        //Arrange
+        $id = 3;
+        $name = "Brand Name";
+        $test_brand = new Brand($name, $id);
+
+        //Act
+        $result = $test_brand->getId();
+
+        //Assert
+        $this->assertEquals(3, $result);
+    }
 }
 ?>
